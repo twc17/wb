@@ -30,7 +30,6 @@
         Form2.CheckBox1.Checked = Resolved
         Form2.CheckBox1.Enabled = False
         Form2.Button1.Visible = False
-        Form2.TopMost = True
     End Sub
 
     Private Sub DataGridView2_CellMouseClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles DataGridView2.CellMouseClick
@@ -51,6 +50,5 @@
         Form2.TextBox7.Text = Description
         Form2.TextBox7.ReadOnly = True
         Form2.Button1.Visible = False
-        Form2.TopMost = True
     End Sub
 End Class
