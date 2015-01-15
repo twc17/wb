@@ -92,14 +92,12 @@ Public Class Form1
     Private Sub Form2_Load(sender As Object, e As EventArgs) Handles NewTicket.Click
         'When creating a new ticket, load a blank form
         Form2.Show()
-        Form2.TopMost = True
     End Sub
 
 
     Private Sub NotifyIcon1_BalloonTipClicked(sender As Object, e As EventArgs) Handles NotifyIcon1.BalloonTipClicked
         ' When user clicks on balloon tip, it will open the window with the ticket information and be able to edit it.
         Form2.Show()
-        Form2.TopMost = True
         If NotifyIcon1.BalloonTipIcon.Equals(ToolTipIcon.Info) Then
             Form2.ComboBox1.Text = "Note"
         ElseIf NotifyIcon1.BalloonTipIcon.Equals(ToolTipIcon.Warning) Then
@@ -132,7 +130,6 @@ Public Class Form1
         Form2.ComboBox1.Enabled = False
         Form2.TextBox7.Text = Description
         Form2.Button1.Text = "Update"
-        Form2.TopMost = True
 
     End Sub
 
@@ -151,7 +148,6 @@ Public Class Form1
         Form2.ComboBox1.Enabled = False
         Form2.TextBox7.Text = Description
         Form2.Button1.Text = "Update"
-        Form2.TopMost = True
 
     End Sub
 
