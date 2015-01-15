@@ -1,10 +1,11 @@
 ﻿Public Class Form3
 
     Private Sub Form3_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'TODO: This line of code loads data into the 'WbDataSet1.Table2' table. You can move, or remove it, as needed.
+        Me.Table2TableAdapter1.Fill(Me.WbDataSet1.Table2)
+        'TODO: This line of code loads data into the 'WbDataSet1.Table1' table. You can move, or remove it, as needed.
+        Me.Table1TableAdapter.Fill(Me.WbDataSet1.Table1)
         'TODO: This line of code loads data into the 'TestDataSet.Table2' table. You can move, or remove it, as needed.
-        Me.Table2TableAdapter.Fill(Me.TestDataSet.Table2)
-        'TODO: This line of code loads data into the 'TestDataSet.Table1' table. You can move, or remove it, as needed.
-        Me.Table1TableAdapter.Fill(Me.TestDataSet.Table1)
         Me.DataGridView1.Sort(DataGridView1.Columns(5), System.ComponentModel.ListSortDirection.Descending)
         Me.DataGridView2.Sort(DataGridView2.Columns(3), System.ComponentModel.ListSortDirection.Descending)
 

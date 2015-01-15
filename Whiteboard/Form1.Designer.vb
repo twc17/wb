@@ -25,7 +25,17 @@ Partial Class Form1
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.SubmitterDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TicketNumberDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CriticalDataGridViewCheckBoxColumn = New System.Windows.Forms.DataGridViewCheckBoxColumn()
+        Me.TypeDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DescriptionDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.LastModifiedDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ResolvedDataGridViewCheckBoxColumn = New System.Windows.Forms.DataGridViewCheckBoxColumn()
+        Me.Table1BindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.WbDataSet = New Whiteboard.wbDataSet()
         Me.DataGridView2 = New System.Windows.Forms.DataGridView()
+        Me.Table2BindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.NewTicket = New System.Windows.Forms.Button()
         Me.ViewPastTickets = New System.Windows.Forms.Button()
         Me.Quit = New System.Windows.Forms.Button()
@@ -36,29 +46,19 @@ Partial Class Form1
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.OtherNotesDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ID = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Table2BindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.TestDataSet = New Whiteboard.testDataSet()
-        Me.Table1BindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.Table1TableAdapter = New Whiteboard.testDataSetTableAdapters.Table1TableAdapter()
-        Me.Table2TableAdapter = New Whiteboard.testDataSetTableAdapters.Table2TableAdapter()
+        Me.Table1TableAdapter = New Whiteboard.wbDataSetTableAdapters.Table1TableAdapter()
+        Me.Table2TableAdapter = New Whiteboard.wbDataSetTableAdapters.Table2TableAdapter()
         Me.OtherNotesDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.LastModifiedDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ResolvedDataGridViewCheckBoxColumn1 = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         Me.IDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.SubmitterDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.SubmitterDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.TicketNumberDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.CriticalDataGridViewCheckBoxColumn = New System.Windows.Forms.DataGridViewCheckBoxColumn()
-        Me.TypeDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DescriptionDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.LastModifiedDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ResolvedDataGridViewCheckBoxColumn = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.ContextMenuStrip1.SuspendLayout()
-        CType(Me.Table2BindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.TestDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Table1BindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.WbDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Table2BindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.ContextMenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'DataGridView1
@@ -84,6 +84,70 @@ Partial Class Form1
         Me.DataGridView1.Size = New System.Drawing.Size(1010, 250)
         Me.DataGridView1.TabIndex = 0
         '
+        'SubmitterDataGridViewTextBoxColumn
+        '
+        Me.SubmitterDataGridViewTextBoxColumn.DataPropertyName = "Submitter"
+        Me.SubmitterDataGridViewTextBoxColumn.HeaderText = "Submitter"
+        Me.SubmitterDataGridViewTextBoxColumn.Name = "SubmitterDataGridViewTextBoxColumn"
+        Me.SubmitterDataGridViewTextBoxColumn.ReadOnly = True
+        Me.SubmitterDataGridViewTextBoxColumn.Width = 80
+        '
+        'TicketNumberDataGridViewTextBoxColumn
+        '
+        Me.TicketNumberDataGridViewTextBoxColumn.DataPropertyName = "Ticket Number"
+        Me.TicketNumberDataGridViewTextBoxColumn.HeaderText = "Ticket Number"
+        Me.TicketNumberDataGridViewTextBoxColumn.Name = "TicketNumberDataGridViewTextBoxColumn"
+        Me.TicketNumberDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'CriticalDataGridViewCheckBoxColumn
+        '
+        Me.CriticalDataGridViewCheckBoxColumn.DataPropertyName = "Critical"
+        Me.CriticalDataGridViewCheckBoxColumn.HeaderText = "Critical"
+        Me.CriticalDataGridViewCheckBoxColumn.Name = "CriticalDataGridViewCheckBoxColumn"
+        Me.CriticalDataGridViewCheckBoxColumn.ReadOnly = True
+        Me.CriticalDataGridViewCheckBoxColumn.Width = 50
+        '
+        'TypeDataGridViewTextBoxColumn
+        '
+        Me.TypeDataGridViewTextBoxColumn.DataPropertyName = "Type"
+        Me.TypeDataGridViewTextBoxColumn.HeaderText = "Type"
+        Me.TypeDataGridViewTextBoxColumn.Name = "TypeDataGridViewTextBoxColumn"
+        Me.TypeDataGridViewTextBoxColumn.ReadOnly = True
+        Me.TypeDataGridViewTextBoxColumn.Width = 80
+        '
+        'DescriptionDataGridViewTextBoxColumn
+        '
+        Me.DescriptionDataGridViewTextBoxColumn.DataPropertyName = "Description"
+        Me.DescriptionDataGridViewTextBoxColumn.HeaderText = "Description"
+        Me.DescriptionDataGridViewTextBoxColumn.Name = "DescriptionDataGridViewTextBoxColumn"
+        Me.DescriptionDataGridViewTextBoxColumn.ReadOnly = True
+        Me.DescriptionDataGridViewTextBoxColumn.Width = 600
+        '
+        'LastModifiedDataGridViewTextBoxColumn
+        '
+        Me.LastModifiedDataGridViewTextBoxColumn.DataPropertyName = "Last Modified"
+        Me.LastModifiedDataGridViewTextBoxColumn.HeaderText = "Last Modified"
+        Me.LastModifiedDataGridViewTextBoxColumn.Name = "LastModifiedDataGridViewTextBoxColumn"
+        Me.LastModifiedDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'ResolvedDataGridViewCheckBoxColumn
+        '
+        Me.ResolvedDataGridViewCheckBoxColumn.DataPropertyName = "Resolved"
+        Me.ResolvedDataGridViewCheckBoxColumn.HeaderText = "Resolved"
+        Me.ResolvedDataGridViewCheckBoxColumn.Name = "ResolvedDataGridViewCheckBoxColumn"
+        Me.ResolvedDataGridViewCheckBoxColumn.ReadOnly = True
+        Me.ResolvedDataGridViewCheckBoxColumn.Visible = False
+        '
+        'Table1BindingSource
+        '
+        Me.Table1BindingSource.DataMember = "Table1"
+        Me.Table1BindingSource.DataSource = Me.WbDataSet
+        '
+        'WbDataSet
+        '
+        Me.WbDataSet.DataSetName = "wbDataSet"
+        Me.WbDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
         'DataGridView2
         '
         Me.DataGridView2.AllowUserToAddRows = False
@@ -102,6 +166,11 @@ Partial Class Form1
         Me.DataGridView2.ScrollBars = System.Windows.Forms.ScrollBars.None
         Me.DataGridView2.Size = New System.Drawing.Size(1010, 179)
         Me.DataGridView2.TabIndex = 1
+        '
+        'Table2BindingSource
+        '
+        Me.Table2BindingSource.DataMember = "Table2"
+        Me.Table2BindingSource.DataSource = Me.WbDataSet
         '
         'NewTicket
         '
@@ -179,21 +248,6 @@ Partial Class Form1
         Me.ID.HeaderText = "ID"
         Me.ID.Name = "ID"
         '
-        'Table2BindingSource
-        '
-        Me.Table2BindingSource.DataMember = "Table2"
-        Me.Table2BindingSource.DataSource = Me.TestDataSet
-        '
-        'TestDataSet
-        '
-        Me.TestDataSet.DataSetName = "testDataSet"
-        Me.TestDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'Table1BindingSource
-        '
-        Me.Table1BindingSource.DataMember = "Table1"
-        Me.Table1BindingSource.DataSource = Me.TestDataSet
-        '
         'Table1TableAdapter
         '
         Me.Table1TableAdapter.ClearBeforeFill = True
@@ -236,60 +290,6 @@ Partial Class Form1
         Me.SubmitterDataGridViewTextBoxColumn1.Name = "SubmitterDataGridViewTextBoxColumn1"
         Me.SubmitterDataGridViewTextBoxColumn1.Visible = False
         '
-        'SubmitterDataGridViewTextBoxColumn
-        '
-        Me.SubmitterDataGridViewTextBoxColumn.DataPropertyName = "Submitter"
-        Me.SubmitterDataGridViewTextBoxColumn.HeaderText = "Submitter"
-        Me.SubmitterDataGridViewTextBoxColumn.Name = "SubmitterDataGridViewTextBoxColumn"
-        Me.SubmitterDataGridViewTextBoxColumn.ReadOnly = True
-        Me.SubmitterDataGridViewTextBoxColumn.Width = 80
-        '
-        'TicketNumberDataGridViewTextBoxColumn
-        '
-        Me.TicketNumberDataGridViewTextBoxColumn.DataPropertyName = "Ticket Number"
-        Me.TicketNumberDataGridViewTextBoxColumn.HeaderText = "Ticket Number"
-        Me.TicketNumberDataGridViewTextBoxColumn.Name = "TicketNumberDataGridViewTextBoxColumn"
-        Me.TicketNumberDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'CriticalDataGridViewCheckBoxColumn
-        '
-        Me.CriticalDataGridViewCheckBoxColumn.DataPropertyName = "Critical"
-        Me.CriticalDataGridViewCheckBoxColumn.HeaderText = "Critical"
-        Me.CriticalDataGridViewCheckBoxColumn.Name = "CriticalDataGridViewCheckBoxColumn"
-        Me.CriticalDataGridViewCheckBoxColumn.ReadOnly = True
-        Me.CriticalDataGridViewCheckBoxColumn.Width = 50
-        '
-        'TypeDataGridViewTextBoxColumn
-        '
-        Me.TypeDataGridViewTextBoxColumn.DataPropertyName = "Type"
-        Me.TypeDataGridViewTextBoxColumn.HeaderText = "Type"
-        Me.TypeDataGridViewTextBoxColumn.Name = "TypeDataGridViewTextBoxColumn"
-        Me.TypeDataGridViewTextBoxColumn.ReadOnly = True
-        Me.TypeDataGridViewTextBoxColumn.Width = 80
-        '
-        'DescriptionDataGridViewTextBoxColumn
-        '
-        Me.DescriptionDataGridViewTextBoxColumn.DataPropertyName = "Description"
-        Me.DescriptionDataGridViewTextBoxColumn.HeaderText = "Description"
-        Me.DescriptionDataGridViewTextBoxColumn.Name = "DescriptionDataGridViewTextBoxColumn"
-        Me.DescriptionDataGridViewTextBoxColumn.ReadOnly = True
-        Me.DescriptionDataGridViewTextBoxColumn.Width = 600
-        '
-        'LastModifiedDataGridViewTextBoxColumn
-        '
-        Me.LastModifiedDataGridViewTextBoxColumn.DataPropertyName = "Last Modified"
-        Me.LastModifiedDataGridViewTextBoxColumn.HeaderText = "Last Modified"
-        Me.LastModifiedDataGridViewTextBoxColumn.Name = "LastModifiedDataGridViewTextBoxColumn"
-        Me.LastModifiedDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'ResolvedDataGridViewCheckBoxColumn
-        '
-        Me.ResolvedDataGridViewCheckBoxColumn.DataPropertyName = "Resolved"
-        Me.ResolvedDataGridViewCheckBoxColumn.HeaderText = "Resolved"
-        Me.ResolvedDataGridViewCheckBoxColumn.Name = "ResolvedDataGridViewCheckBoxColumn"
-        Me.ResolvedDataGridViewCheckBoxColumn.ReadOnly = True
-        Me.ResolvedDataGridViewCheckBoxColumn.Visible = False
-        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -311,11 +311,11 @@ Partial Class Form1
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Whiteboard"
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.ContextMenuStrip1.ResumeLayout(False)
-        CType(Me.Table2BindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.TestDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Table1BindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.WbDataSet, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Table2BindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ContextMenuStrip1.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -340,16 +340,6 @@ Partial Class Form1
     Friend WithEvents Timer1 As System.Windows.Forms.Timer
     Friend WithEvents OtherNotesDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents ID As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents TestDataSet As Whiteboard.testDataSet
-    Friend WithEvents Table1BindingSource As System.Windows.Forms.BindingSource
-    Friend WithEvents Table1TableAdapter As Whiteboard.testDataSetTableAdapters.Table1TableAdapter
-    Friend WithEvents Table2BindingSource As System.Windows.Forms.BindingSource
-    Friend WithEvents Table2TableAdapter As Whiteboard.testDataSetTableAdapters.Table2TableAdapter
-    Friend WithEvents OtherNotesDataGridViewTextBoxColumn1 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents LastModifiedDataGridViewTextBoxColumn1 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents ResolvedDataGridViewCheckBoxColumn1 As System.Windows.Forms.DataGridViewCheckBoxColumn
-    Friend WithEvents IDDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents SubmitterDataGridViewTextBoxColumn1 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents SubmitterDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents TicketNumberDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents CriticalDataGridViewCheckBoxColumn As System.Windows.Forms.DataGridViewCheckBoxColumn
@@ -357,4 +347,14 @@ Partial Class Form1
     Friend WithEvents DescriptionDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents LastModifiedDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents ResolvedDataGridViewCheckBoxColumn As System.Windows.Forms.DataGridViewCheckBoxColumn
+    Friend WithEvents WbDataSet As Whiteboard.wbDataSet
+    Friend WithEvents Table1BindingSource As System.Windows.Forms.BindingSource
+    Friend WithEvents Table1TableAdapter As Whiteboard.wbDataSetTableAdapters.Table1TableAdapter
+    Friend WithEvents Table2BindingSource As System.Windows.Forms.BindingSource
+    Friend WithEvents Table2TableAdapter As Whiteboard.wbDataSetTableAdapters.Table2TableAdapter
+    Friend WithEvents OtherNotesDataGridViewTextBoxColumn1 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents LastModifiedDataGridViewTextBoxColumn1 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents ResolvedDataGridViewCheckBoxColumn1 As System.Windows.Forms.DataGridViewCheckBoxColumn
+    Friend WithEvents IDDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents SubmitterDataGridViewTextBoxColumn1 As System.Windows.Forms.DataGridViewTextBoxColumn
 End Class

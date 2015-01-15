@@ -13,7 +13,7 @@
     <MyType>WindowsForms</MyType>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>C:\Users\twc17\Documents\Visual Studio 2013\Projects\Whiteboard\Whiteboard\publish\</PublishUrl>
+    <PublishUrl>Y:\Groups\Help Desk\Projects\2014 - Whiteboard - Help Desk Notification Tool\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -23,7 +23,8 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>4</ApplicationRevision>
+    <AutorunEnabled>true</AutorunEnabled>
+    <ApplicationRevision>5</ApplicationRevision>
     <ApplicationVersion>1.0.3.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -149,6 +150,11 @@
     <Compile Include="testDataSet.vb">
       <DependentUpon>testDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="wbDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>wbDataSet.xsd</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Form1.resx">
@@ -193,6 +199,17 @@
     </None>
     <None Include="testDataSet.xss">
       <DependentUpon>testDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="wbDataSet.xsc">
+      <DependentUpon>wbDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="wbDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>wbDataSet.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="wbDataSet.xss">
+      <DependentUpon>wbDataSet.xsd</DependentUpon>
     </None>
     <None Include="Whiteboard_TemporaryKey.pfx" />
   </ItemGroup>

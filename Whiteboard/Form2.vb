@@ -17,11 +17,11 @@
         If (Button1.Text.Equals("Submit")) Then
             If ComboBox1.Text.Equals("Note") Then
                 Form1.Table2TableAdapter.InsertQuery(TextBox7.Text, DateAndTime.Now, CheckBox1.Checked, TextBox5.Text)
-                Form1.TestDataSet.AcceptChanges()
+                Form1.WbDataSet.AcceptChanges()
                 Me.Close()
             ElseIf (Form1.Table1TableAdapter.SearchTicket(TextBox4.Text) = 0) Then
                 Form1.Table1TableAdapter.InsertQuery(TextBox5.Text, TextBox4.Text, crit, ComboBox1.Text, TextBox7.Text, DateAndTime.Now, CheckBox1.Checked)
-                Form1.TestDataSet.AcceptChanges()
+                Form1.WbDataSet.AcceptChanges()
                 Me.Close()
             Else
                 MsgBox("Ticket Already Exists, Please Use Update Feature")

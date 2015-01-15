@@ -25,12 +25,6 @@ Partial Class Form3
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form3))
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.Table1BindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.TestDataSet = New Whiteboard.testDataSet()
-        Me.DataGridView2 = New System.Windows.Forms.DataGridView()
-        Me.Table2BindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.Table1TableAdapter = New Whiteboard.testDataSetTableAdapters.Table1TableAdapter()
-        Me.Table2TableAdapter = New Whiteboard.testDataSetTableAdapters.Table2TableAdapter()
         Me.SubmitterDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TicketNumberDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.CriticalDataGridViewCheckBoxColumn = New System.Windows.Forms.DataGridViewCheckBoxColumn()
@@ -38,16 +32,22 @@ Partial Class Form3
         Me.DescriptionDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.LastModifiedDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ResolvedDataGridViewCheckBoxColumn = New System.Windows.Forms.DataGridViewCheckBoxColumn()
+        Me.Table1BindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DataGridView2 = New System.Windows.Forms.DataGridView()
         Me.IDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.SubmitterDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.OtherNotesDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.LastModifiedDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ResolvedDataGridViewCheckBoxColumn1 = New System.Windows.Forms.DataGridViewCheckBoxColumn()
+        Me.Table2BindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.WbDataSet1 = New Whiteboard.wbDataSet()
+        Me.Table1TableAdapter = New Whiteboard.wbDataSetTableAdapters.Table1TableAdapter()
+        Me.Table2TableAdapter1 = New Whiteboard.wbDataSetTableAdapters.Table2TableAdapter()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Table1BindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.TestDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Table2BindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.WbDataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'DataGridView1
@@ -70,48 +70,6 @@ Partial Class Form3
         Me.DataGridView1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.DataGridView1.Size = New System.Drawing.Size(1000, 250)
         Me.DataGridView1.TabIndex = 0
-        '
-        'Table1BindingSource
-        '
-        Me.Table1BindingSource.DataMember = "Table1"
-        Me.Table1BindingSource.DataSource = Me.TestDataSet
-        '
-        'TestDataSet
-        '
-        Me.TestDataSet.DataSetName = "testDataSet"
-        Me.TestDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'DataGridView2
-        '
-        Me.DataGridView2.AllowUserToAddRows = False
-        Me.DataGridView2.AllowUserToDeleteRows = False
-        Me.DataGridView2.AllowUserToResizeColumns = False
-        Me.DataGridView2.AllowUserToResizeRows = False
-        Me.DataGridView2.AutoGenerateColumns = False
-        Me.DataGridView2.BackgroundColor = System.Drawing.SystemColors.Control
-        Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView2.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IDDataGridViewTextBoxColumn, Me.SubmitterDataGridViewTextBoxColumn1, Me.OtherNotesDataGridViewTextBoxColumn, Me.LastModifiedDataGridViewTextBoxColumn1, Me.ResolvedDataGridViewCheckBoxColumn1})
-        Me.DataGridView2.DataSource = Me.Table2BindingSource
-        Me.DataGridView2.Location = New System.Drawing.Point(0, 268)
-        Me.DataGridView2.Name = "DataGridView2"
-        Me.DataGridView2.ReadOnly = True
-        Me.DataGridView2.RowHeadersVisible = False
-        Me.DataGridView2.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
-        Me.DataGridView2.Size = New System.Drawing.Size(1000, 250)
-        Me.DataGridView2.TabIndex = 1
-        '
-        'Table2BindingSource
-        '
-        Me.Table2BindingSource.DataMember = "Table2"
-        Me.Table2BindingSource.DataSource = Me.TestDataSet
-        '
-        'Table1TableAdapter
-        '
-        Me.Table1TableAdapter.ClearBeforeFill = True
-        '
-        'Table2TableAdapter
-        '
-        Me.Table2TableAdapter.ClearBeforeFill = True
         '
         'SubmitterDataGridViewTextBoxColumn
         '
@@ -166,6 +124,30 @@ Partial Class Form3
         Me.ResolvedDataGridViewCheckBoxColumn.Name = "ResolvedDataGridViewCheckBoxColumn"
         Me.ResolvedDataGridViewCheckBoxColumn.ReadOnly = True
         '
+        'Table1BindingSource
+        '
+        Me.Table1BindingSource.DataMember = "Table1"
+        Me.Table1BindingSource.DataSource = Me.WbDataSet1
+        '
+        'DataGridView2
+        '
+        Me.DataGridView2.AllowUserToAddRows = False
+        Me.DataGridView2.AllowUserToDeleteRows = False
+        Me.DataGridView2.AllowUserToResizeColumns = False
+        Me.DataGridView2.AllowUserToResizeRows = False
+        Me.DataGridView2.AutoGenerateColumns = False
+        Me.DataGridView2.BackgroundColor = System.Drawing.SystemColors.Control
+        Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView2.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IDDataGridViewTextBoxColumn, Me.SubmitterDataGridViewTextBoxColumn1, Me.OtherNotesDataGridViewTextBoxColumn, Me.LastModifiedDataGridViewTextBoxColumn1, Me.ResolvedDataGridViewCheckBoxColumn1})
+        Me.DataGridView2.DataSource = Me.Table2BindingSource
+        Me.DataGridView2.Location = New System.Drawing.Point(0, 268)
+        Me.DataGridView2.Name = "DataGridView2"
+        Me.DataGridView2.ReadOnly = True
+        Me.DataGridView2.RowHeadersVisible = False
+        Me.DataGridView2.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
+        Me.DataGridView2.Size = New System.Drawing.Size(1000, 250)
+        Me.DataGridView2.TabIndex = 1
+        '
         'IDDataGridViewTextBoxColumn
         '
         Me.IDDataGridViewTextBoxColumn.DataPropertyName = "ID"
@@ -203,6 +185,24 @@ Partial Class Form3
         Me.ResolvedDataGridViewCheckBoxColumn1.Name = "ResolvedDataGridViewCheckBoxColumn1"
         Me.ResolvedDataGridViewCheckBoxColumn1.ReadOnly = True
         '
+        'Table2BindingSource
+        '
+        Me.Table2BindingSource.DataMember = "Table2"
+        Me.Table2BindingSource.DataSource = Me.WbDataSet1
+        '
+        'WbDataSet1
+        '
+        Me.WbDataSet1.DataSetName = "wbDataSet"
+        Me.WbDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'Table1TableAdapter
+        '
+        Me.Table1TableAdapter.ClearBeforeFill = True
+        '
+        'Table2TableAdapter1
+        '
+        Me.Table2TableAdapter1.ClearBeforeFill = True
+        '
         'Form3
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -218,19 +218,16 @@ Partial Class Form3
         Me.Text = "Past Tickets"
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Table1BindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.TestDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Table2BindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.WbDataSet1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
     Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
     Friend WithEvents DataGridView2 As System.Windows.Forms.DataGridView
-    Friend WithEvents TestDataSet As Whiteboard.testDataSet
     Friend WithEvents Table1BindingSource As System.Windows.Forms.BindingSource
-    Friend WithEvents Table1TableAdapter As Whiteboard.testDataSetTableAdapters.Table1TableAdapter
     Friend WithEvents Table2BindingSource As System.Windows.Forms.BindingSource
-    Friend WithEvents Table2TableAdapter As Whiteboard.testDataSetTableAdapters.Table2TableAdapter
     Friend WithEvents SubmitterDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents TicketNumberDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents CriticalDataGridViewCheckBoxColumn As System.Windows.Forms.DataGridViewCheckBoxColumn
@@ -243,4 +240,7 @@ Partial Class Form3
     Friend WithEvents OtherNotesDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents LastModifiedDataGridViewTextBoxColumn1 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents ResolvedDataGridViewCheckBoxColumn1 As System.Windows.Forms.DataGridViewCheckBoxColumn
+    Friend WithEvents WbDataSet1 As Whiteboard.wbDataSet
+    Friend WithEvents Table1TableAdapter As Whiteboard.wbDataSetTableAdapters.Table1TableAdapter
+    Friend WithEvents Table2TableAdapter1 As Whiteboard.wbDataSetTableAdapters.Table2TableAdapter
 End Class
