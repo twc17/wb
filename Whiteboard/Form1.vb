@@ -99,6 +99,7 @@ Public Class Form1
         ' When user clicks on balloon tip, it will open the window with the ticket information and be able to edit it.
         Form2.Show()
         If NotifyIcon1.BalloonTipIcon.Equals(ToolTipIcon.Info) Then
+            'If the note is resolved, make everything read only
             If Table2TableAdapter.IsResolved(Mid(NotifyIcon1.BalloonTipTitle, (NotifyIcon1.BalloonTipTitle.IndexOf("#") + 2))) Then
                 Form2.TextBox7.ReadOnly = True
                 Form2.CheckBox1.Checked = True
@@ -107,6 +108,7 @@ Public Class Form1
             End If
             Form2.ComboBox1.Text = "Note"
         ElseIf Table1TableAdapter.IsResolved(Mid(NotifyIcon1.BalloonTipTitle, (NotifyIcon1.BalloonTipTitle.IndexOf("#") + 2))) Then
+            'If the ticket is resolved, make everything read only
             Form2.TextBox7.ReadOnly = True
             Form2.CheckBox1.Checked = True
             Form2.CheckBox1.Enabled = False
