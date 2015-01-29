@@ -99,8 +99,21 @@ Public Class Form1
         ' When user clicks on balloon tip, it will open the window with the ticket information and be able to edit it.
         Form2.Show()
         If NotifyIcon1.BalloonTipIcon.Equals(ToolTipIcon.Info) Then
+            If Table2TableAdapter.IsResolved(Mid(NotifyIcon1.BalloonTipTitle, (NotifyIcon1.BalloonTipTitle.IndexOf("#") + 2))) Then
+                Form2.TextBox7.ReadOnly = True
+                Form2.CheckBox1.Checked = True
+                Form2.CheckBox1.Enabled = False
+                Form2.Button1.Visible = False
+            End If
             Form2.ComboBox1.Text = "Note"
-        ElseIf NotifyIcon1.BalloonTipIcon.Equals(ToolTipIcon.Warning) Then
+        ElseIf Table1TableAdapter.IsResolved(Mid(NotifyIcon1.BalloonTipTitle, (NotifyIcon1.BalloonTipTitle.IndexOf("#") + 2))) Then
+            Form2.TextBox7.ReadOnly = True
+            Form2.CheckBox1.Checked = True
+            Form2.CheckBox1.Enabled = False
+            Form2.Button1.Visible = False
+        End If
+
+        If NotifyIcon1.BalloonTipIcon.Equals(ToolTipIcon.Warning) Then
             Form2.ComboBox1.Text = "Problem"
         Else
             Form2.ComboBox1.Text = "Critical"
@@ -109,7 +122,7 @@ Public Class Form1
         Form2.ComboBox1.Enabled = False
         Form2.TextBox4.Text = Mid(NotifyIcon1.BalloonTipTitle, (NotifyIcon1.BalloonTipTitle.IndexOf("#") + 2))
         Form2.TextBox4.ReadOnly = True
-        Form2.Button1.Text = "Update"
+
     End Sub
 
 
