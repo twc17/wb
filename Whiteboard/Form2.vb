@@ -47,4 +47,12 @@
         'Close the form
         Me.Close()
     End Sub
+
+    Private Sub TextBox4_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TextBox4.KeyPress
+        'Only integer values are allowed in the Ticket Number field
+        If Asc(e.KeyChar) <> 13 AndAlso Asc(e.KeyChar) <> 8 AndAlso Not IsNumeric(e.KeyChar) Then
+            MessageBox.Show("Please enter numbers only")
+            e.Handled = True
+        End If
+    End Sub
 End Class
