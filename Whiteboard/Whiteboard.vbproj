@@ -142,14 +142,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="testDataSet.Designer.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>testDataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="testDataSet.vb">
-      <DependentUpon>testDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="wbDataSet.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -192,17 +184,6 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <None Include="App.config" />
-    <None Include="testDataSet.xsc">
-      <DependentUpon>testDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="testDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>testDataSet.Designer.vb</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="testDataSet.xss">
-      <DependentUpon>testDataSet.xsd</DependentUpon>
-    </None>
     <None Include="wbDataSet.xsc">
       <DependentUpon>wbDataSet.xsd</DependentUpon>
     </None>

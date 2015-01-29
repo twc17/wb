@@ -35,6 +35,11 @@ Partial Class Form1
         Me.Table1BindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.WbDataSet = New Whiteboard.wbDataSet()
         Me.DataGridView2 = New System.Windows.Forms.DataGridView()
+        Me.OtherNotesDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.LastModifiedDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ResolvedDataGridViewCheckBoxColumn1 = New System.Windows.Forms.DataGridViewCheckBoxColumn()
+        Me.IDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.SubmitterDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Table2BindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.NewTicket = New System.Windows.Forms.Button()
         Me.ViewPastTickets = New System.Windows.Forms.Button()
@@ -48,11 +53,6 @@ Partial Class Form1
         Me.ID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Table1TableAdapter = New Whiteboard.wbDataSetTableAdapters.Table1TableAdapter()
         Me.Table2TableAdapter = New Whiteboard.wbDataSetTableAdapters.Table2TableAdapter()
-        Me.OtherNotesDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.LastModifiedDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ResolvedDataGridViewCheckBoxColumn1 = New System.Windows.Forms.DataGridViewCheckBoxColumn()
-        Me.IDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.SubmitterDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Table1BindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.WbDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -167,6 +167,40 @@ Partial Class Form1
         Me.DataGridView2.Size = New System.Drawing.Size(1010, 179)
         Me.DataGridView2.TabIndex = 1
         '
+        'OtherNotesDataGridViewTextBoxColumn1
+        '
+        Me.OtherNotesDataGridViewTextBoxColumn1.DataPropertyName = "Other Notes"
+        Me.OtherNotesDataGridViewTextBoxColumn1.HeaderText = "Other Notes"
+        Me.OtherNotesDataGridViewTextBoxColumn1.Name = "OtherNotesDataGridViewTextBoxColumn1"
+        Me.OtherNotesDataGridViewTextBoxColumn1.Width = 910
+        '
+        'LastModifiedDataGridViewTextBoxColumn1
+        '
+        Me.LastModifiedDataGridViewTextBoxColumn1.DataPropertyName = "Last Modified"
+        Me.LastModifiedDataGridViewTextBoxColumn1.HeaderText = "Last Modified"
+        Me.LastModifiedDataGridViewTextBoxColumn1.Name = "LastModifiedDataGridViewTextBoxColumn1"
+        '
+        'ResolvedDataGridViewCheckBoxColumn1
+        '
+        Me.ResolvedDataGridViewCheckBoxColumn1.DataPropertyName = "Resolved"
+        Me.ResolvedDataGridViewCheckBoxColumn1.HeaderText = "Resolved"
+        Me.ResolvedDataGridViewCheckBoxColumn1.Name = "ResolvedDataGridViewCheckBoxColumn1"
+        Me.ResolvedDataGridViewCheckBoxColumn1.Visible = False
+        '
+        'IDDataGridViewTextBoxColumn
+        '
+        Me.IDDataGridViewTextBoxColumn.DataPropertyName = "ID"
+        Me.IDDataGridViewTextBoxColumn.HeaderText = "ID"
+        Me.IDDataGridViewTextBoxColumn.Name = "IDDataGridViewTextBoxColumn"
+        Me.IDDataGridViewTextBoxColumn.Visible = False
+        '
+        'SubmitterDataGridViewTextBoxColumn1
+        '
+        Me.SubmitterDataGridViewTextBoxColumn1.DataPropertyName = "Submitter"
+        Me.SubmitterDataGridViewTextBoxColumn1.HeaderText = "Submitter"
+        Me.SubmitterDataGridViewTextBoxColumn1.Name = "SubmitterDataGridViewTextBoxColumn1"
+        Me.SubmitterDataGridViewTextBoxColumn1.Visible = False
+        '
         'Table2BindingSource
         '
         Me.Table2BindingSource.DataMember = "Table2"
@@ -255,40 +289,6 @@ Partial Class Form1
         'Table2TableAdapter
         '
         Me.Table2TableAdapter.ClearBeforeFill = True
-        '
-        'OtherNotesDataGridViewTextBoxColumn1
-        '
-        Me.OtherNotesDataGridViewTextBoxColumn1.DataPropertyName = "Other Notes"
-        Me.OtherNotesDataGridViewTextBoxColumn1.HeaderText = "Other Notes"
-        Me.OtherNotesDataGridViewTextBoxColumn1.Name = "OtherNotesDataGridViewTextBoxColumn1"
-        Me.OtherNotesDataGridViewTextBoxColumn1.Width = 910
-        '
-        'LastModifiedDataGridViewTextBoxColumn1
-        '
-        Me.LastModifiedDataGridViewTextBoxColumn1.DataPropertyName = "Last Modified"
-        Me.LastModifiedDataGridViewTextBoxColumn1.HeaderText = "Last Modified"
-        Me.LastModifiedDataGridViewTextBoxColumn1.Name = "LastModifiedDataGridViewTextBoxColumn1"
-        '
-        'ResolvedDataGridViewCheckBoxColumn1
-        '
-        Me.ResolvedDataGridViewCheckBoxColumn1.DataPropertyName = "Resolved"
-        Me.ResolvedDataGridViewCheckBoxColumn1.HeaderText = "Resolved"
-        Me.ResolvedDataGridViewCheckBoxColumn1.Name = "ResolvedDataGridViewCheckBoxColumn1"
-        Me.ResolvedDataGridViewCheckBoxColumn1.Visible = False
-        '
-        'IDDataGridViewTextBoxColumn
-        '
-        Me.IDDataGridViewTextBoxColumn.DataPropertyName = "ID"
-        Me.IDDataGridViewTextBoxColumn.HeaderText = "ID"
-        Me.IDDataGridViewTextBoxColumn.Name = "IDDataGridViewTextBoxColumn"
-        Me.IDDataGridViewTextBoxColumn.Visible = False
-        '
-        'SubmitterDataGridViewTextBoxColumn1
-        '
-        Me.SubmitterDataGridViewTextBoxColumn1.DataPropertyName = "Submitter"
-        Me.SubmitterDataGridViewTextBoxColumn1.HeaderText = "Submitter"
-        Me.SubmitterDataGridViewTextBoxColumn1.Name = "SubmitterDataGridViewTextBoxColumn1"
-        Me.SubmitterDataGridViewTextBoxColumn1.Visible = False
         '
         'Form1
         '
