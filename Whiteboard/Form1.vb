@@ -39,7 +39,6 @@ Public Class Form1
             NotifyIcon1.BalloonTipText = DataGridView1.Rows(0).Cells(4).Value
             NotifyIcon1.ShowBalloonTip(30000)
         End If
-
     End Sub
 
     Private Sub Quit_Click(sender As Object, e As EventArgs) Handles Quit.Click
@@ -59,7 +58,6 @@ Public Class Form1
 
         'Enable the Context Menu Strip
         ContextMenuStrip1.Enabled = True
-
     End Sub
 
     Private Sub ShowToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ShowToolStripMenuItem.Click, NotifyIcon1.DoubleClick
@@ -71,7 +69,6 @@ Public Class Form1
 
         'Disable the Context Menu:
         ContextMenuStrip1.Enabled = False
-
     End Sub
 
     Private Sub ExitToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ExitToolStripMenuItem.Click
@@ -85,15 +82,12 @@ Public Class Form1
             ShowInTaskbar = False
             ContextMenuStrip1.Enabled = True
         End If
-
     End Sub
-
 
     Private Sub Form2_Load(sender As Object, e As EventArgs) Handles NewTicket.Click
         'When creating a new ticket, load a blank form
         Form2.Show()
     End Sub
-
 
     Private Sub NotifyIcon1_BalloonTipClicked(sender As Object, e As EventArgs) Handles NotifyIcon1.BalloonTipClicked
         ' When user clicks on balloon tip, it will open the window with the ticket information and be able to edit it.
@@ -124,9 +118,7 @@ Public Class Form1
         Form2.ComboBox1.Enabled = False
         Form2.TextBox4.Text = Mid(NotifyIcon1.BalloonTipTitle, (NotifyIcon1.BalloonTipTitle.IndexOf("#") + 2))
         Form2.TextBox4.ReadOnly = True
-
     End Sub
-
 
     Private Sub DataGridView1_CellMouseClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles DataGridView1.CellMouseClick
         ' Get all cell values from selected row
@@ -145,7 +137,6 @@ Public Class Form1
         Form2.ComboBox1.Enabled = False
         Form2.TextBox7.Text = Description
         Form2.Button1.Text = "Update"
-
     End Sub
 
     Private Sub DataGridView2_CellMouseClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles DataGridView2.CellMouseClick
@@ -163,7 +154,6 @@ Public Class Form1
         Form2.ComboBox1.Enabled = False
         Form2.TextBox7.Text = Description
         Form2.Button1.Text = "Update"
-
     End Sub
 
     Private Sub DataGridView1_DataBindingComplete(sender As Object, e As DataGridViewBindingCompleteEventArgs) Handles DataGridView1.DataBindingComplete
