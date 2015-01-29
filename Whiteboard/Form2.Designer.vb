@@ -95,6 +95,7 @@ Partial Class Form2
         '
         'ComboBox1
         '
+        Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox1.FormattingEnabled = True
         Me.ComboBox1.Items.AddRange(New Object() {"Note", "Critical", "Problem"})
         Me.ComboBox1.Location = New System.Drawing.Point(214, 31)

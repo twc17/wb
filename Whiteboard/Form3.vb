@@ -9,7 +9,6 @@
         'Sorts the table in descending order of last date modify
         Me.DataGridView1.Sort(DataGridView1.Columns(5), System.ComponentModel.ListSortDirection.Descending)
         Me.DataGridView2.Sort(DataGridView2.Columns(3), System.ComponentModel.ListSortDirection.Descending)
-
     End Sub
 
     Private Sub DataGridView1_CellMouseClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles DataGridView1.CellMouseClick
