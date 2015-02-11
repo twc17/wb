@@ -22,6 +22,9 @@
                 Form1.Table2TableAdapter.InsertQuery(TextBox7.Text, DateAndTime.Now, CheckBox1.Checked, TextBox5.Text)
                 Form1.WbDataSet.AcceptChanges()
                 Me.Close()
+            ElseIf (TextBox4.TextLength = 0) Then
+                'Check to see if a ticket number was entered, before trying to execute sql query
+                MsgBox("You must enter a ticket number when submitting a problem or critical ticket")
             ElseIf (Form1.Table1TableAdapter.SearchTicket(TextBox4.Text) = 0) Then
                 'Check to see if the ticket number has already been used
                 'If it hasn't been used, create a new entry in the DB
