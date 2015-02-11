@@ -35,10 +35,16 @@
                 MsgBox("Ticket Already Exists, Please Use Update Feature")
             End If
 
+            If (TextBox7.TextLength = 0) Then
+                'Check to make sure use entered a description before submitting
+                MsgBox("You MUST enter a description when submitting a ticket")
+            End If
+
         ElseIf (ComboBox1.Text.Equals("Note")) Then
             'If you're updating a note... execute the sql querey
             Form1.Table2TableAdapter.UpdateQuery(TextBox7.Text, DateAndTime.Now, CheckBox1.Checked, TextBox4.Text)
             Close()
+
         Else
             'Else... you're updating an existing ticket with the sql query
             Form1.Table1TableAdapter.UpdateQuery(TextBox7.Text, DateAndTime.Now, CheckBox1.Checked, TextBox4.Text)
