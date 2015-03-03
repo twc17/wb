@@ -118,6 +118,7 @@ Public Class Form1
         Form2.ComboBox1.Enabled = False
         Form2.TextBox4.Text = Mid(NotifyIcon1.BalloonTipTitle, (NotifyIcon1.BalloonTipTitle.IndexOf("#") + 2))
         Form2.TextBox4.ReadOnly = True
+        Form2.Button1.Text = "Update"
     End Sub
 
     Private Sub DataGridView1_CellMouseClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles DataGridView1.CellMouseClick

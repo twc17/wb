@@ -16,28 +16,30 @@
         End If
 
         If (Button1.Text.Equals("Submit")) Then
-            'If you're submitting a ticket, and not updating one.
-            If ComboBox1.Text.Equals("Note") Then
-                'Note ticket numbers are auto generate, no need to check against DB, okay to create new entry
-                Form1.Table2TableAdapter.InsertQuery(TextBox7.Text, DateAndTime.Now, CheckBox1.Checked, TextBox5.Text)
-                Form1.WbDataSet.AcceptChanges()
-                Me.Close()
-            ElseIf (TextBox4.TextLength = 0) Then
-                'Check to see if a ticket number was entered, before trying to execute sql query
-                MsgBox("You must enter a ticket number when submitting a problem or critical ticket")
-            ElseIf (Form1.Table1TableAdapter.SearchTicket(TextBox4.Text) = 0) Then
-                'Check to see if the ticket number has already been used
-                'If it hasn't been used, create a new entry in the DB
-                Form1.Table1TableAdapter.InsertQuery(TextBox5.Text, TextBox4.Text, crit, ComboBox1.Text, TextBox7.Text, DateAndTime.Now, CheckBox1.Checked)
-                Form1.WbDataSet.AcceptChanges()
-                Me.Close()
-            Else
-                MsgBox("Ticket Already Exists, Please Use Update Feature")
-            End If
-
-            If (TextBox7.TextLength = 0) Then
-                'Check to make sure use entered a description before submitting
+            If (String.IsNullOrEmpty(TextBox7.Text)) Then
+                'Check to make sure user entered a description before submitting
                 MsgBox("You MUST enter a description when submitting a ticket")
+
+            Else
+
+                'If you're submitting a ticket, and not updating one.
+                If ComboBox1.Text.Equals("Note") Then
+                    'Note ticket numbers are auto generate, no need to check against DB, okay to create new entry
+                    Form1.Table2TableAdapter.InsertQuery(TextBox7.Text, DateAndTime.Now, CheckBox1.Checked, TextBox5.Text)
+                    Form1.WbDataSet.AcceptChanges()
+                    Me.Close()
+                ElseIf (TextBox4.TextLength = 0) Then
+                    'Check to see if a ticket number was entered, before trying to execute sql query
+                    MsgBox("You must enter a ticket number when submitting a problem or critical ticket")
+                ElseIf (Form1.Table1TableAdapter.SearchTicket(TextBox4.Text) = 0) Then
+                    'Check to see if the ticket number has already been used
+                    'If it hasn't been used, create a new entry in the DB
+                    Form1.Table1TableAdapter.InsertQuery(TextBox5.Text, TextBox4.Text, crit, ComboBox1.Text, TextBox7.Text, DateAndTime.Now, CheckBox1.Checked)
+                    Form1.WbDataSet.AcceptChanges()
+                    Me.Close()
+                Else
+                    MsgBox("Ticket Already Exists, Please Use Update Feature")
+                End If
             End If
 
         ElseIf (ComboBox1.Text.Equals("Note")) Then
