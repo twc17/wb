@@ -12,7 +12,7 @@
     End Sub
 
     Private Sub DataGridView1_CellMouseClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles DataGridView1.CellMouseClick
-        If (e.RowIndex > 0) Then
+        If (e.RowIndex >= 0) Then
             ' Get all cell values from selected row
             Dim Submitter As String = DataGridView1.Rows(e.RowIndex).Cells(0).Value
             Dim TicketNum As String = DataGridView1.Rows(e.RowIndex).Cells(1).Value
@@ -37,7 +37,7 @@
     End Sub
 
     Private Sub DataGridView2_CellMouseClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles DataGridView2.CellMouseClick
-        If (e.RowIndex > 0) Then
+        If (e.RowIndex >= 0) Then
             ' Get all cell values from selected row
             Dim ID As String = DataGridView2.Rows(e.RowIndex).Cells(0).Value
             Dim Submitter As String = DataGridView2.Rows(e.RowIndex).Cells(1).Value

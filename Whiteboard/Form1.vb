@@ -123,7 +123,7 @@ Public Class Form1
 
     Private Sub DataGridView1_CellMouseClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles DataGridView1.CellMouseClick
         ' Get all cell values from selected row
-        If (e.RowIndex > 0) Then
+        If (e.RowIndex >= 0) Then
             Dim Submitter As String = DataGridView1.Rows(e.RowIndex).Cells(0).Value
             Dim TicketNum As String = DataGridView1.Rows(e.RowIndex).Cells(1).Value
             Dim Critical As Boolean = DataGridView1.Rows(e.RowIndex).Cells(2).Value
@@ -144,7 +144,7 @@ Public Class Form1
 
     Private Sub DataGridView2_CellMouseClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles DataGridView2.CellMouseClick
         ' Get all cell values from selected row
-        If (e.RowIndex > 0) Then
+        If (e.RowIndex >= 0) Then
             Dim Description As String = DataGridView2.Rows(e.RowIndex).Cells(0).Value
             Dim ID As String = DataGridView2.Rows(e.RowIndex).Cells(3).Value
             Dim Submitter As String = DataGridView2.Rows(e.RowIndex).Cells(4).Value
