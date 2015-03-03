@@ -12,47 +12,51 @@
     End Sub
 
     Private Sub DataGridView1_CellMouseClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles DataGridView1.CellMouseClick
-        ' Get all cell values from selected row
-        Dim Submitter As String = DataGridView1.Rows(e.RowIndex).Cells(0).Value
-        Dim TicketNum As String = DataGridView1.Rows(e.RowIndex).Cells(1).Value
-        Dim Critical As Boolean = DataGridView1.Rows(e.RowIndex).Cells(2).Value
-        Dim Type As String = DataGridView1.Rows(e.RowIndex).Cells(3).Value
-        Dim Description As String = DataGridView1.Rows(e.RowIndex).Cells(4).Value
-        Dim Resolved As Boolean = DataGridView1.Rows(e.RowIndex).Cells(6).Value
+        If (e.RowIndex > 0) Then
+            ' Get all cell values from selected row
+            Dim Submitter As String = DataGridView1.Rows(e.RowIndex).Cells(0).Value
+            Dim TicketNum As String = DataGridView1.Rows(e.RowIndex).Cells(1).Value
+            Dim Critical As Boolean = DataGridView1.Rows(e.RowIndex).Cells(2).Value
+            Dim Type As String = DataGridView1.Rows(e.RowIndex).Cells(3).Value
+            Dim Description As String = DataGridView1.Rows(e.RowIndex).Cells(4).Value
+            Dim Resolved As Boolean = DataGridView1.Rows(e.RowIndex).Cells(6).Value
 
-        'Display the selected rows data
-        Form2.Show()
-        Form2.TextBox4.Text = TicketNum
-        Form2.TextBox4.ReadOnly = True
-        Form2.TextBox5.Text = Submitter
-        Form2.ComboBox1.Text = Type
-        Form2.ComboBox1.Enabled = False
-        Form2.TextBox7.Text = Description
-        Form2.TextBox7.ReadOnly = True
-        Form2.CheckBox1.Checked = Resolved
-        Form2.CheckBox1.Enabled = False
-        Form2.Button1.Visible = False
+            'Display the selected rows data
+            Form2.Show()
+            Form2.TextBox4.Text = TicketNum
+            Form2.TextBox4.ReadOnly = True
+            Form2.TextBox5.Text = Submitter
+            Form2.ComboBox1.Text = Type
+            Form2.ComboBox1.Enabled = False
+            Form2.TextBox7.Text = Description
+            Form2.TextBox7.ReadOnly = True
+            Form2.CheckBox1.Checked = Resolved
+            Form2.CheckBox1.Enabled = False
+            Form2.Button1.Visible = False
+        End If
     End Sub
 
     Private Sub DataGridView2_CellMouseClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles DataGridView2.CellMouseClick
-        ' Get all cell values from selected row
-        Dim ID As String = DataGridView2.Rows(e.RowIndex).Cells(0).Value
-        Dim Submitter As String = DataGridView2.Rows(e.RowIndex).Cells(1).Value
-        Dim Description As String = DataGridView2.Rows(e.RowIndex).Cells(2).Value
-        Dim Resolved As Boolean = DataGridView2.Rows(e.RowIndex).Cells(4).Value
+        If (e.RowIndex > 0) Then
+            ' Get all cell values from selected row
+            Dim ID As String = DataGridView2.Rows(e.RowIndex).Cells(0).Value
+            Dim Submitter As String = DataGridView2.Rows(e.RowIndex).Cells(1).Value
+            Dim Description As String = DataGridView2.Rows(e.RowIndex).Cells(2).Value
+            Dim Resolved As Boolean = DataGridView2.Rows(e.RowIndex).Cells(4).Value
 
-        'Display the selected rows data
-        Form2.Show()
-        Form2.TextBox5.Text = Submitter
-        Form2.TextBox5.ReadOnly = True
-        Form2.TextBox4.Text = ID
-        Form2.TextBox4.ReadOnly = True
-        Form2.ComboBox1.Text = "Note"
-        Form2.ComboBox1.Enabled = False
-        Form2.CheckBox1.Checked = Resolved
-        Form2.CheckBox1.Enabled = False
-        Form2.TextBox7.Text = Description
-        Form2.TextBox7.ReadOnly = True
-        Form2.Button1.Visible = False
+            'Display the selected rows data
+            Form2.Show()
+            Form2.TextBox5.Text = Submitter
+            Form2.TextBox5.ReadOnly = True
+            Form2.TextBox4.Text = ID
+            Form2.TextBox4.ReadOnly = True
+            Form2.ComboBox1.Text = "Note"
+            Form2.ComboBox1.Enabled = False
+            Form2.CheckBox1.Checked = Resolved
+            Form2.CheckBox1.Enabled = False
+            Form2.TextBox7.Text = Description
+            Form2.TextBox7.ReadOnly = True
+            Form2.Button1.Visible = False
+        End If
     End Sub
 End Class
